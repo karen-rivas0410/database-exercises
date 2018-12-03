@@ -63,4 +63,3 @@ where hire_date like '%199%'
 and birth_date like '%-12-25%'
 order by hire_date desc;
 
-SELECT * FROM employees where hire_date = '1987-02-03';
