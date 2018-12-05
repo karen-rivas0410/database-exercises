@@ -6,7 +6,7 @@ SHOW TABLES;
 describe employees;
 
 # In your script, use DISTINCT to find the unique titles in the titles table. Your results should look like:
-SELECT DISTINCT employees from Tables_in_employees;
+SELECT DISTINCT titles from titles;
 
 
 # Find your query for employees whose last names start and end with 'E'. Update the query find just the unique last names
