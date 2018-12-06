@@ -8,6 +8,9 @@ CREATE TABLE roles (
   PRIMARY KEY (id)
 );
 
+SELECT * FROM roles;
+SELECT * FROM users;
+
 CREATE TABLE users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
@@ -30,6 +33,36 @@ INSERT INTO users (name, email, role_id) VALUES
 ('jane', 'jane@example.com', null),
 ('mike', 'mike@example.com', null);
 
+insert into users (name, email, role_id) values
+('karen','karen@example.com', 2),
+('Tim','tim@example.com', NULL),
+('Tom','tom@example.com', 2),
+('Steven','steven@example.com', 2);
+
+
+# Join / Inner Join
 SELECT users.name as user_name, roles.name as role_name
 FROM users
 JOIN roles ON users.role_id = roles.id;
+
+
+# Left Join
+SELECT users.name AS user_name, roles.name AS role_name
+FROM users
+LEFT JOIN roles ON users.role_id = roles.id;
+
+# Right Join
+SELECT users.name AS user_name, roles.name AS role_name
+FROM users
+RIGHT JOIN roles ON users.role_id = roles.id;
+
+# Although not explicitly covered in the lesson, aggregate functions like count can be used
+# with join queries. Use count and the appropriate join type to get a list of roles along with
+# the number of users that has the role. Hint: You will also need to use group by in the query.
+
+Select u.name as 'un', roles.name as 'Role Name', count(*)
+from users as u
+join roles on u.role_id = roles.id
+GROUP BY `Role Name`, un
+ORDER BY count(*);
+
